@@ -1,0 +1,16 @@
+{
+  "ttl": 1,
+  "contents": {
+    "blog": [
+      {
+        "path": "first.md",
+        "modification": 1
+      },
+      {
+        "path": "second.md",
+        "modification": 1
+      }
+    ],
+    "work": []
+  }
+}
