@@ -32,6 +32,8 @@ define(['underscore', 'jquery', 'backbone', 'bound', 'view/body'],
     projects: function(entry) {
       this.setActive('projects');
       this.body.showProjects(entry);
+
+      window.scrollTo(0, 0);
     },
     performNavigation: function(path) {
       this.navigate(path, { trigger: true });

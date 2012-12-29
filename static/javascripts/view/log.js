@@ -11,6 +11,8 @@ define(['view', 'view/log/leader'],
         item.fetch();
       }, this);
 
+      window.scrollTo(0, window.scrollTop);
+
       return this;
     }
   });

@@ -1,5 +1,5 @@
-define(['view', 'backbone', 'disqus'],
-       function(View, Backbone, disqus) {
+define(['underscore', 'view', 'backbone', 'disqus'],
+       function(_, View, Backbone, disqus) {
 
   return View.extend({
     templateName: 'log-entry',
@@ -25,6 +25,10 @@ define(['view', 'backbone', 'disqus'],
           fragment: Backbone.history.fragment
         });
       }
+
+      setTimeout(_.bind(function() {
+        window.scrollTo(0, this.$el.offset().top);
+      }, this), 0);
 
       return this;
     },
