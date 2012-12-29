@@ -1,5 +1,5 @@
-define(['underscore', 'jquery', 'backbone', 'bound', 'view/body'],
-       function(_, $, Backbone, Bound, Body) {
+define(['underscore', 'jquery', 'backbone', 'bound', 'view/body', 'marked', 'highlight'],
+       function(_, $, Backbone, Bound, Body, marked, highlight) {
   return Backbone.Router.extend({
     routes: {
       '': 'index',
@@ -15,7 +15,26 @@ define(['underscore', 'jquery', 'backbone', 'bound', 'view/body'],
         bound: this.bound
       }).render();
 
+      marked.setOptions({
+        gfm: true,
+        pedantic: false,
+        sanitize: true,
+        highlight: function(code, language) {
+          try {
+            if (language) {
+              return highlight.highlight(language, code).value;
+            }
+
+            return highlight.highlightAuto(code).value;
+          } catch(e) {
+            console.error('Error while highlighting code.', e);
+          }
+        }
+      });
+
       this.body.navigation.on('navigate', this.performNavigation, this);
+
+      $(document.getElementsByTagName('html')[0]).addClass('scriptology');
 
       Backbone.history.start({
         //pushState: true

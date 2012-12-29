@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-handlebars');
   grunt.loadNpmTasks('grunt-requirejs');
+  grunt.loadNpmTasks('grunt-csso');
   grunt.initConfig({
     watch: {
       templates: {
@@ -10,7 +11,25 @@ module.exports = function(grunt) {
       javascripts: {
         files: 'static/javascripts/**/*.js',
         tasks: 'requirejs'
+      },
+      css: {
+        files: 'static/stylesheets/**/*.css',
+        tasks: 'css'
       }
+    },
+    concat: {
+      css: {
+        src: [
+          'static/stylesheets/support/normalize.css',
+          'static/stylesheets/support/fontello.css',
+          'static/stylesheets/support/highlight/zenburn.css',
+          'static/stylesheets/scriptology.css'
+        ],
+        dest: 'static/stylesheets/all.css'
+      }
+    },
+    csso: {
+      'static/stylesheets/all.min.css': 'static/stylesheets/all.css'
     },
     handlebars: {
       all: {
@@ -27,4 +46,6 @@ module.exports = function(grunt) {
       }
     }
   });
+
+  grunt.registerTask('css', 'concat csso');
 };

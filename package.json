@@ -1,0 +1,11 @@
+{
+  "name": "scriptolo.gy",
+  "version": "0.0.1",
+  "description": "The personal blog of Chris Joel",
+  "dependencies": {
+    "grunt-csso": "~0.2.1",
+    "grunt-handlebars": "~0.0.6",
+    "grunt-requirejs": "~0.3.1"
+  },
+  "author": "Chris Joel"
+}

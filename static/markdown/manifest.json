@@ -3,16 +3,24 @@
   "contents": {
     "log": [
       {
+        "id": "this-however-was-when-he-talked-with-the-boys",
+        "title": "third",
+        "path": "third.md",
+        "modification": 1
+      },
+      {
         "id": "again-gransers-eyes-burned-with-greediness",
+        "title": "second",
         "path": "second.md",
         "modification": 1
       },
       {
         "id": "the-old-man-manifested-an-accustomed-chagrin",
+        "title": "first",
         "path": "first.md",
         "modification": 1
       }
     ],
-    "work": []
+    "projects": []
   }
 }

@@ -4,7 +4,7 @@ date: December 22, 2012
 author: Chris Joel
 ```
 
-![An kitten](http://placekitten.com/g/400/300)
+![An kitten](http://placekitten.com/g/900/650)
 
 The boys were overwhelmed with delight at sight of the tears of senile disappointment that dribbled down the old man's cheeks. Then, unnoticed, Hoo-Hoo replaced the empty shell with a fresh-cooked crab. Already dismembered, from the cracked legs the white meat sent forth a small cloud of savory steam. This attracted the old man's nostrils, and he looked down in amazement.
 

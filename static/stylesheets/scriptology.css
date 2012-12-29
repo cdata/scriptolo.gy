@@ -66,6 +66,14 @@ p:last-child {
   margin: 0;
 }
 
+pre code {
+  border-radius: 0.5em;
+  background: #555;
+  color: #f2f2f2;
+  font-size: 0.8em;
+  padding: 1em;
+}
+
 .placeholder {
   border-radius: 0.25em;
   background-color: #e2e2e2;
@@ -82,7 +90,16 @@ p:last-child {
   -o-animation: spin 2s infinite linear;
   -webkit-animation: spin 2s infinite linear;
   animation: spin 2s infinite linear;
-  padding: 0 !important;
+  padding: 0;
+}
+
+#Container > .placeholder {
+  background: transparent;
+  padding: 4em 0 2em;
+}
+
+#Container > .placeholder > .spinner {
+  color: #e2e2e2;
 }
 
 .spinner:before {
@@ -90,7 +107,8 @@ p:last-child {
 }
 
 #Container {
-  width: 468px;
+  /*width: 468px;*/
+  width: 528px;
   margin: 0 auto 5em;
   padding: 0 2em 4em;
   border-radius: 0;
@@ -151,9 +169,9 @@ p:last-child {
 #Container > footer > img {
   float: left;
   border-radius: 0.5em;
-  margin-right: 6.66%;
-  width: 36%;
-  height: 36%;
+  margin-right: 6%;
+  width: 22%;
+  height: 22%;
 }
 
 #Container > footer > img:after {
@@ -176,16 +194,30 @@ p:last-child {
 body > footer {
   display: block;
   position: relative;
-  margin: 0 0 5em;
+  margin: 0 0 4em;
   text-align: center;
   color: #555;
+  opacity: 0;
 }
 
-@media screen and (max-width: 540px) {
+.scriptology body > footer {
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  opacity: 1;
+}
+
+@media screen and (max-width: 600px) {
   #Container {
-    width: 86.66%;
-    padding: 0 6.66% 13.33%;
+    width: 88%;
+    padding: 0 6% 12%;
     min-width: 260px;
+  }
+
+  #Container > .placeholder {
+    padding: 24% 0 12%;
   }
 }
 

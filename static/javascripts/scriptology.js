@@ -7,7 +7,9 @@ requirejs.config({
     'backbone': 'support/backbone',
     'marked': 'support/marked',
     'q': 'support/q',
-    'handlebars': 'support/handlebars'
+    'handlebars': 'support/handlebars',
+    'highlight': 'support/highlight',
+    'typekit': '//use.typekit.net/evf4jpj'
   },
   shim: {
     'handlebars': {
@@ -26,10 +28,31 @@ requirejs.config({
     },
     'marked': {
       exports: 'marked'
+    },
+    'typekit': {
+      exports: 'Typekit'
     }
   }
 });
 
-require(['app'], function(App) {
-  window.scriptology = new App();
+require(['app', 'typekit', 'q'], function(App, Typekit, q) {
+  try {
+    var result = q.defer();
+    var typekitLoads = result.promise;
+
+    Typekit.load({
+      active: function() {
+        result.resolve();
+      },
+      inactive: function() {
+        result.resolve();
+      }
+    });
+  } catch(e) {
+    console.error(e.toString());
+  }
+
+  typekitLoads.then(function() {
+    window.scriptology = new App();
+  });
 });
