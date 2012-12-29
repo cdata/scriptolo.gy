@@ -152,8 +152,8 @@ p:last-child {
   float: left;
   border-radius: 0.5em;
   margin-right: 6.66%;
-  width: 33.33%;
-  height: 33.33%;
+  width: 36%;
+  height: 36%;
 }
 
 #Container > footer > img:after {
@@ -185,6 +185,7 @@ body > footer {
   #Container {
     width: 86.66%;
     padding: 0 6.66% 13.33%;
+    min-width: 260px;
   }
 }
 
