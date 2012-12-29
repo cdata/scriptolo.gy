@@ -38,6 +38,8 @@ h1 a:hover {
 div, section, ul, ol, li, nav {
   display: block;
   position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 h1, h2, h3, h4, h5 {
@@ -56,7 +58,17 @@ p:last-child {
   margin: 0;
 }
 
+.placeholder {
+  border-radius: 0.25em;
+  background-color: #e2e2e2;
+  font-size: 2em;
+  padding: 1em;
+  text-align: center;
+  color: #f2f2f2;
+}
+
 .spinner {
+  display: inline-block;
   font-family: 'scriptology';
   -moz-animation: spin 2s infinite linear;
   -o-animation: spin 2s infinite linear;
@@ -128,13 +140,25 @@ p:last-child {
   float: left;
   border-radius: 0.5em;
   margin-right: 2em;
-  margin-bottom: 1em;
   width: 7em;
   height: 7em;
 }
 
 #Container > footer > img:after {
   content: '';
+}
+
+#Content > ol > li:not(:last-child) {
+  margin-bottom: 4em;
+}
+
+.log article p > img {
+  width: 100%;
+  border-radius: 0.5em;
+}
+
+#disqus_thread {
+  padding-top: 1em;
 }
 
 body > footer {
@@ -149,6 +173,10 @@ body > footer {
   #Container {
     width: 80%;
     padding: 0 10% 10%;
+  }
+
+  #Container > footer > img {
+    margin-bottom: 1em;
   }
 }
 

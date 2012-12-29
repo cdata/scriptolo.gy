@@ -1,0 +1,17 @@
+{{#if content}}
+  <article>
+    <header>
+      <h1>{{meta.title}}</h1>
+    </header>
+    {{#if image}}
+      {{{image}}}
+    {{/if}}
+    {{#if leader}}
+      <p>{{{leader}}}<a class="read-more" href="log/{{id}}" alt="{{meta.title}}">Read more &hellip;</a></p>
+    {{/if}}
+  </article>
+{{else}}
+  <div class="placeholder">
+    <div class="spinner"></div>
+  </div>
+{{/if}}

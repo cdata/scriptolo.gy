@@ -1,13 +1,15 @@
 {
-  "ttl": 1,
+  "ttl": 3600,
   "contents": {
-    "blog": [
+    "log": [
       {
-        "path": "first.md",
+        "id": "again-gransers-eyes-burned-with-greediness",
+        "path": "second.md",
         "modification": 1
       },
       {
-        "path": "second.md",
+        "id": "the-old-man-manifested-an-accustomed-chagrin",
+        "path": "first.md",
         "modification": 1
       }
     ],

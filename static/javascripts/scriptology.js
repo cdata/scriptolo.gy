@@ -6,9 +6,17 @@ requirejs.config({
     'underscore': 'support/lodash',
     'backbone': 'support/backbone',
     'marked': 'support/marked',
-    'q': 'support/q'
+    'q': 'support/q',
+    'handlebars': 'support/handlebars'
   },
   shim: {
+    'handlebars': {
+      exports: 'Handlebars'
+    },
+    'handlebars/templates': {
+      deps: ['handlebars'],
+      exports: 'Handlebars.templates'
+    },
     'backbone': {
       deps: ['underscore', 'jquery'],
       exports: 'Backbone'
