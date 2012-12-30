@@ -3,7 +3,7 @@ define(['jquery', 'underscore'],
 
   function loadDisqusScript() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = '//cdata-scriptology.disqus.com/embed.js';
+    dsq.src = '//cdata-scriptology.disqus.com/embed.js?https';
     (document.getElementsByTagName('head')[0] ||
       document.getElementsByTagName('body')[0]).appendChild(dsq);
   }
