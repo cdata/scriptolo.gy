@@ -38,7 +38,8 @@ define(['underscore', 'jquery', 'backbone', 'bound', 'view/body', 'view/log', 'v
       $(document.getElementsByTagName('html')[0]).addClass('scriptology');
 
       Backbone.history.start({
-        //pushState: true
+        pushState: !(window.location.search &&
+                     /\?dev$/i.test(window.location.search))
       });
     },
     index: function() {
