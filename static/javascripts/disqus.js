@@ -28,7 +28,7 @@ define(['jquery', 'underscore'],
 
       window.disqus_shortname = 'cdata-scriptology';
       window.disqus_identifier = options.fragment;
-      window.disqus_url = '//scriptolo.gy/' + options.fragment;
+      window.disqus_url = 'https://scriptolo.gy/' + options.fragment;
 
       loadDisqusScript();
     }
