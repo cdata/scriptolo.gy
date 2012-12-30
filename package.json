@@ -2,10 +2,21 @@
   "name": "scriptolo.gy",
   "version": "0.0.1",
   "description": "The personal blog of Chris Joel",
+  "author": "Chris Joel",
+  "repository": {
+    "type": "git",
+    "url": "chris@dev.cloud:repositories/scriptolo.gy/.git"
+  },
   "dependencies": {
+    "express": "~3.0.5",
     "grunt-csso": "~0.2.1",
     "grunt-handlebars": "~0.0.6",
-    "grunt-requirejs": "~0.3.1"
-  },
-  "author": "Chris Joel"
+    "lodash": "~1.0.0-rc.3",
+    "js-yaml": "~1.0.3",
+    "grunt-requirejs": "~0.3.1",
+    "q": "~0.8.11",
+    "rss": "~0.0.4",
+    "q-io": "~1.5.0",
+    "marked": "~0.2.6"
+  }
 }
