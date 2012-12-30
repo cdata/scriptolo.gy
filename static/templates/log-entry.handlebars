@@ -1,11 +1,9 @@
 {{#if content}}
-  <article>
-    <header>
-      <h1>{{meta.title}}</h1>
-    </header>
-    {{{content}}}
-    <div id="disqus_thread"></div>
-  </article>
+  <header>
+    <h1>{{meta.title}}</h1>
+  </header>
+  {{{content}}}
+  <div id="disqus_thread"></div>
 {{else}}
   <div class="placeholder">
     <div class="spinner"></div>

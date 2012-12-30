@@ -619,9 +619,15 @@ a {
   text-shadow: 0 0 0 #ccc;
 }
 
-a:hover {
+a.internal {
+  color: #888;
+}
+
+a:hover,
+a.internal:hover {
   color: #008dc4;
 }
+
 
 h1 a {
   color: #888;
@@ -682,11 +688,11 @@ pre code {
 
 .placeholder {
   border-radius: 0.25em;
-  background-color: #e2e2e2;
+
   font-size: 2em;
-  padding: 1em;
+  padding: 2em;
   text-align: center;
-  color: #f2f2f2;
+  color: #e2e2e2;
 }
 
 .spinner {
@@ -728,7 +734,7 @@ pre code {
   padding: 0.5em 0 4em;
 }
 
-#Container > header > nav > a {
+#Container nav a {
   display: inline-block;
   position: relative;
   padding: 0 0.5em 0 0;
@@ -736,9 +742,9 @@ pre code {
   color: #888;
 }
 
-#Container > header > nav > a:hover,
-#Container > header > nav > a.active,
-#Container > header > nav > a:active {
+#Container nav a:hover,
+#Container nav a.active,
+#Container nav a:active {
   color: #008dc4;
 }
 
@@ -751,14 +757,14 @@ pre code {
 #Container > footer {
   clear: both;
   overflow: hidden;
-  padding-top: 2em;
+  padding-top: 1.5em;
 }
 
 #Container > footer:before {
   display: block;
   position: relative;
   content: '\221e';
-  margin: 0 auto 2em;
+  margin: 0 auto 1.5em;
   width: 1em;
   height: 1em;
   font-family: 'scriptology';
@@ -791,6 +797,15 @@ pre code {
 .log article p > img {
   width: 100%;
   border-radius: 0.5em;
+}
+
+.projects #Content header h1 {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+#Container .archive li:not(:last-child) {
+  margin-bottom: 0.5em;
 }
 
 #disqus_thread {
@@ -828,7 +843,7 @@ body > footer {
 }
 
 @media screen and (max-width: 450px) {
-  #Container > header {
+  #Container > header, nav {
     font-size: 16px;
   }
 
@@ -838,7 +853,7 @@ body > footer {
 }
 
 @media screen and (max-width: 400px) {
-  #Container > header {
+  #Container > header, nav {
     font-size: 14px;
   }
 
@@ -848,7 +863,7 @@ body > footer {
 }
 
 @media screen and (max-width: 350px) {
-  #Container > header {
+  #Container > header, nav {
     font-size: 12px;
   }
 }

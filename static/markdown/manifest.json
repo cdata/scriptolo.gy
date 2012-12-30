@@ -4,7 +4,9 @@
     "log": [
       {
         "id": "this-however-was-when-he-talked-with-the-boys",
-        "title": "third",
+        "meta": {
+          "title": "This, however, was when he talked with the boys"
+        },
         "path": "third.md",
         "modification": 1
       },

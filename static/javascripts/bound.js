@@ -3,7 +3,7 @@ define(['underscore', 'jquery', 'q', 'bound/queueable', 'bound/model/entry', 'bo
   var Bound = Queueable.extend({
     initialize: function(options) {
       options = _.defaults(options || {}, {
-        manifest: 'manifest.json',
+        manifest: 'bound-manifest.json',
         base: '',
         prefix: 'BOUND::'
       });
@@ -48,20 +48,18 @@ define(['underscore', 'jquery', 'q', 'bound/queueable', 'bound/model/entry', 'bo
               // Evict out-of-date items..
               _.each(newManifest.contents, function(items, section) {
                 var oldSection = _.reduce(manifest[section], function(map, item) {
-                  var path = this.base + '/' + section + '/' + item.path;
-                  map[path] = item;
+                  map[item.path] = item;
                   return map;
                 }, {}, this);
 
                 _.each(items, function(item) {
-                  var path = this.base + '/' + section + '/' + item.path;
-                  var oldItem = oldSection[path];
+                  var oldItem = oldSection[item.path];
                   if (!oldItem) {
                     return;
                   }
 
                   if (oldItem.modification < item.modification) {
-                    this.evict(path);
+                    this.evict(item.path);
                   }
                 }, this);
               }, this);
@@ -71,17 +69,6 @@ define(['underscore', 'jquery', 'q', 'bound/queueable', 'bound/model/entry', 'bo
         }
 
         return manifest.contents;
-      }, this)).then(_.bind(function(contents) {
-        _.each(contents, function(list, section) {
-          contents[section] = _.map(list, function(item) {
-            return {
-              path: this.base + '/' + section + '/' + item.path,
-              id: item.id
-            };
-          }, this);
-        }, this);
-
-        return contents;
       }, this));
     },
     getItem: function(path) {

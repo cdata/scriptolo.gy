@@ -1,15 +1,16 @@
-define(['underscore', 'jquery', 'backbone', 'bound', 'view/body', 'marked', 'highlight'],
-       function(_, $, Backbone, Bound, Body, marked, highlight) {
+define(['underscore', 'jquery', 'backbone', 'bound', 'view/body', 'view/log', 'view/log/entry', 'view/projects', 'view/archive', 'marked', 'highlight'],
+       function(_, $, Backbone, Bound, Body, Log, LogEntry, Projects, Archive, marked, highlight) {
   return Backbone.Router.extend({
     routes: {
       '': 'index',
       'log': 'log',
       'log/:entry': 'log',
       'projects': 'projects',
-      'projects/:entry': 'projects'
+      'projects/:entry': 'projects',
+      'archive': 'archive'
     },
     initialize: function() {
-      this.bound = new Bound({ base: 'markdown' });
+      this.bound = new Bound();
       this.body = new Body({
         el: document.getElementById('Container'),
         bound: this.bound
@@ -45,14 +46,18 @@ define(['underscore', 'jquery', 'backbone', 'bound', 'view/body', 'marked', 'hig
     },
     log: function(entry) {
       var section = entry ? '' : 'log';
+      var ViewClass = entry ? LogEntry : Log;
       this.setActive(section);
-      this.body.showLog(entry);
+      this.body.showSection('log', ViewClass, entry);
     },
     projects: function(entry) {
       this.setActive('projects');
-      this.body.showProjects(entry);
-
-      window.scrollTo(0, 0);
+      this.body.showSection('projects', Projects, entry);
+    },
+    archive: function() {
+      this.setActive();
+      this.body.showSection('log', Archive).then(_.bind(function() {
+      }, this));
     },
     performNavigation: function(path) {
       this.navigate(path, { trigger: true });

@@ -4,10 +4,7 @@ define(['view'],
     templateName: 'archive-leader',
     tagName: 'li',
     events: {
-      'click .read-more': 'navigate'
-    },
-    modelBindings: {
-      'change:content': 'render'
+      'click a': 'navigate'
     },
     render: function() {
       View.prototype.render.apply(this, arguments);

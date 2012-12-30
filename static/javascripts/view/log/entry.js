@@ -3,7 +3,7 @@ define(['underscore', 'view', 'backbone', 'disqus'],
 
   return View.extend({
     templateName: 'log-entry',
-    tagName: 'li',
+    tagName: 'article',
     events: {
     },
     modelBindings: {
@@ -26,9 +26,7 @@ define(['underscore', 'view', 'backbone', 'disqus'],
         });
       }
 
-      setTimeout(_.bind(function() {
-        window.scrollTo(0, this.$el.offset().top);
-      }, this), 0);
+      window.scrollTo(0, this.$el.offset().top);
 
       return this;
     },

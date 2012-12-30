@@ -1,11 +1,7 @@
-define(['underscore', 'backbone', 'handlebars/templates'],
-       function(_, Backbone, templates) {
-  return Backbone.View.extend({
+define(['underscore', 'backbone', 'handlebars/templates', 'bound/queueable'],
+       function(_, Backbone, templates, Queueable) {
+  var View = Backbone.View.extend({
     templateName: '',
-    initialize: function(options) {
-      options = _.defaults(options || {}, {
-      });
-    },
     dispose: function() {
       this.undelegateEvents();
       this.remove();
@@ -37,4 +33,8 @@ define(['underscore', 'backbone', 'handlebars/templates'],
       return this;
     }
   });
+
+  _.extend(View.prototype, Queueable.prototype);
+
+  return View;
 });

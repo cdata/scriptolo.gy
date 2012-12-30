@@ -40,6 +40,10 @@ require(['app', 'typekit', 'q'], function(App, Typekit, q) {
     var result = q.defer();
     var typekitLoads = result.promise;
 
+    setTimeout(function() {
+      result.resolve();
+    }, 5000);
+
     Typekit.load({
       active: function() {
         result.resolve();

@@ -1,0 +1,10 @@
+{
+  "ttl": 3600,
+  "root": "./static",
+  "content": "./markdown",
+  "sort": {
+    "key": "date",
+    "type": "Date",
+    "direction": "descending"
+  }
+}

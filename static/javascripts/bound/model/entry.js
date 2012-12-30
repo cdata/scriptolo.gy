@@ -21,31 +21,14 @@ define(['bound/model', 'marked', 'jquery'],
     parse: function(response) {
       var ast = marked.lexer(response.content);
       var first = ast[0];
-      var meta = {};
       var fragment;
       var image;
       var leader;
       var index;
 
       if (first.type === 'code') {
-        _.reduce(first.text.split('\n'), function(meta, keyValue) {
-          var tuple = keyValue.split(':').map(function(part) {
-            return part.trim();
-          });
-
-          meta[tuple[0]] = tuple[1];
-
-          return meta;
-        }, meta, this);
-
-
         ast = ast.slice(1);
       }
-
-      /*id = meta.title || this.get('path');
-      id = id.toLowerCase()
-          .replace(/[!-\/]/g, '')
-          .replace(/\s/g, '-');*/
 
       index = 0;
 
@@ -67,13 +50,11 @@ define(['bound/model', 'marked', 'jquery'],
         leader = fragment.firstChild.getElementsByTagName('p')[0].innerHTML;
       }
 
-      return {
-        path: response.path,
-        content: marked.parser(ast),
-        leader: leader,
-        image: image,
-        meta: meta
-      };
+      response.content = marked.parser(ast);
+      response.leader = leader;
+      response.image = image;
+
+      return response;
     },
     sync: function(method, model, options) {
       options = _.defaults(options || {}, {
