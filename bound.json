@@ -1,7 +1,8 @@
 {
   "ttl": 3600,
+  "repo": "git://github.com/cdata/blog.git",
   "root": "./static",
-  "content": "./markdown",
+  "content": "./content",
   "sort": {
     "key": "date",
     "type": "Date",
