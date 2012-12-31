@@ -180,9 +180,6 @@ pre code {
   height: 22%;
 }
 
-#Container > footer > img:after {
-  content: '';
-}
 
 #Content > ol > li:not(:last-child) {
   margin-bottom: 4em;
@@ -215,6 +212,26 @@ body > footer {
   opacity: 0;
 }
 
+body > footer > .profiles li {
+  display: inline-block;
+}
+
+body > footer > .profiles li a {
+  color: #555;
+}
+
+
+body > footer > .profiles li a:hover {
+  color: #008dc4;
+}
+
+body > footer > .profiles li a[class^="icon-"]:before {
+  margin-left: 0;
+  margin-right: 0;
+  font-size: 2em;
+}
+
+
 .scriptology body > footer {
   -webkit-transition: opacity 0.3s;
   -moz-transition: opacity 0.3s;
@@ -228,6 +245,10 @@ body > footer {
   #Container {
     width: 88%;
     padding: 0 6% 12%;
+    min-width: 260px;
+  }
+
+  body > footer {
     min-width: 260px;
   }
 

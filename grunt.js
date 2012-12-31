@@ -13,7 +13,10 @@ module.exports = function(grunt) {
         tasks: 'requirejs'
       },
       css: {
-        files: 'static/stylesheets/**/*.css',
+        files: [
+          'static/stylesheets/support/fontello.css',
+          'static/stylesheets/scriptology.css'
+        ],
         tasks: 'css'
       }
     },
