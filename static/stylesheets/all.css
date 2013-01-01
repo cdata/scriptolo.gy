@@ -841,6 +841,9 @@ body > footer > .profiles li a[class^="icon-"]:before {
   font-size: 2em;
 }
 
+body > footer > .profiles li a > span {
+  display: none;
+}
 
 .scriptology body > footer {
   -webkit-transition: opacity 0.3s;
