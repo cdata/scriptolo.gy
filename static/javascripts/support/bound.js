@@ -1,0 +1,1 @@
+../../../components/bound/client/bound.js

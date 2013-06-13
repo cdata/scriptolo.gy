@@ -1,4 +1,4 @@
-define(['view', 'view/log/leader', 'handlebars/templates', 'jquery'],
+define(['view', 'view/log/leader', 'templates', 'jquery'],
        function(View, LogLeader, templates, $) {
   return View.extend({
     tagName: 'ol',

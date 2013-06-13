@@ -1,62 +1,72 @@
-requirejs.config({
-  baseUrl: 'javascripts',
-  //urlArgs: 'bust=' + (new Date()).getTime(),
-  paths: {
-    'jquery': 'support/jquery',
-    'underscore': 'support/lodash',
-    'backbone': 'support/backbone',
-    'marked': 'support/marked',
-    'q': 'support/q',
-    'handlebars': 'support/handlebars',
-    'highlight': 'support/highlight',
-    'typekit': '//use.typekit.net/evf4jpj'
-  },
-  shim: {
-    'handlebars': {
-      exports: 'Handlebars'
-    },
-    'handlebars/templates': {
-      deps: ['handlebars'],
-      exports: 'Handlebars.templates'
-    },
-    'backbone': {
-      deps: ['underscore', 'jquery'],
-      exports: 'Backbone'
-    },
-    'underscore': {
-      exports: '_'
-    },
-    'marked': {
-      exports: 'marked'
-    },
-    'typekit': {
-      exports: 'Typekit'
-    }
-  }
-});
+(function(global) {
+  'use strict';
 
-require(['app', 'typekit', 'q'], function(App, Typekit, q) {
-  try {
-    var result = q.defer();
-    var typekitLoads = result.promise;
-
-    setTimeout(function() {
-      result.resolve();
-    }, 5000);
-
-    Typekit.load({
-      active: function() {
-        result.resolve();
+  requirejs.config({
+    baseUrl: 'javascripts',
+    paths: {
+      'jquery': 'support/jquery',
+      'underscore': 'support/underscore',
+      'backbone': 'support/backbone',
+      'marked': 'support/marked',
+      'q': 'support/q',
+      'handlebars': 'support/handlebars',
+      'templates': 'support/templates',
+      'highlight': 'support/highlight',
+      'typekit': '//use.typekit.net/evf4jpj',
+      '999': 'support/999',
+      'bound': 'support/bound'
+    },
+    shim: {
+      'underscore': {
+        exports: '_'
       },
-      inactive: function() {
-        result.resolve();
+      'backbone': {
+        deps: ['underscore', 'jquery'],
+        exports: 'Backbone'
+      },
+      'handlebars': {
+        exports: 'Handlebars'
+      },
+      'templates': {
+        deps: ['handlebars']
+      },
+      'marked': {
+        exports: 'marked'
+      },
+      'typekit': {
+        exports: 'Typekit'
       }
-    });
-  } catch(e) {
-    console.error(e.toString());
-  }
-
-  typekitLoads.then(function() {
-    window.scriptology = new App();
+    }
   });
-});
+
+  require(['app', 'typekit', 'q'], function(App, Typekit, q) {
+    var result;
+    var typekitLoads;
+
+    try {
+      result = q.defer();
+      typekitLoads = result.promise;
+
+      setTimeout(function() {
+        result.resolve();
+      }, 5000);
+
+      Typekit.load({
+        active: function() {
+          result.resolve();
+        },
+        inactive: function() {
+          result.resolve();
+        }
+      });
+    } catch(e) {
+      console.error(e.toString());
+    }
+
+    typekitLoads = typekitLoads || q.resolve();
+
+    typekitLoads.then(function() {
+      window.scriptology = new App();
+    });
+  });
+})(this);
