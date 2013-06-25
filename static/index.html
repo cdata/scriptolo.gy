@@ -9,17 +9,35 @@
     <base href="/" target="_blank">
     <title>Scriptology</title>
     <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" media="all" href="stylesheets/all.min.css">
+    <link rel="stylesheet" media="all" href="stylesheets/scriptology-release.css">
+    <script type="text/javascript">
+      (function() {
+        'use strict';
+        var devMode = window.location.search &&
+          window.location.search.indexOf('dev') !== -1;
+        var offlineMode = window.navigator.onLine === false ||
+          (!!window.location.search &&
+           window.location.search.indexOf('offline') !== -1);
+        var html = document.getElementsByTagName('html')[0];
+
+        window.SCRIPTOLOGY_DEV_MODE = devMode;
+        window.SCRIPTOLOGY_OFFLINE_MODE = devMode || offlineMode;
+
+        html.className = (html.className || '').replace('no-js', 'js');
+      })();
+    </script>
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-37368807-1']);
       _gaq.push(['_trackPageview']);
 
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+      if (!window.SCRIPTOLOGY_OFFLINE_MODE) {
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      }
     </script>
   </head>
   <body>
@@ -39,18 +57,17 @@
     </footer>
     <script type="text/javascript">
       (function() {
+        'use strict';
         var rjs = document.createElement('script');
         var cursor = document.getElementsByTagName('script')[0];
-        var dev = window.location.search && window.location.search.indexOf('?dev') !== -1;
-        var html = document.getElementsByTagName('html')[0];
+        var module = window.SCRIPTOLOGY_DEV_MODE ?
+          'javascripts/scriptology' : 'javascripts/scriptology-release';
 
-        html.className = (html.className || '').replace('no-js', 'js');
-
-        rjs.setAttribute('data-main',
-            dev ? 'javascripts/scriptology' : 'javascripts/scriptology-release');
+        rjs.setAttribute('data-main', module);
         rjs.type = 'text/javascript';
         rjs.async = true;
         rjs.src = 'javascripts/support/require.js';
+
         cursor.parentNode.insertBefore(rjs, cursor);
       })();
     </script>

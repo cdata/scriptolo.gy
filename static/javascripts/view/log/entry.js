@@ -2,7 +2,7 @@ define(['underscore', 'view', 'backbone', 'disqus'],
        function(_, View, Backbone, disqus) {
 
   return View.extend({
-    templateName: 'log-entry',
+    templateName: 'log-entry.handlebars',
     tagName: 'article',
     events: {
     },

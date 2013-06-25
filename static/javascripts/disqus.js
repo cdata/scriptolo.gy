@@ -16,7 +16,8 @@ define(['jquery', 'underscore'],
     },
     load: function(options) {
       options = _.defaults(options || {}, {
-        dev: 0,
+        dev: window.SCRIPTOLOGY_DEV_MODE,
+        offline: window.SCRIPTOLOGY_OFFLINE_MODE,
         fragment: 'abc-disqus-test-page'
       });
 
@@ -24,13 +25,15 @@ define(['jquery', 'underscore'],
 
       window.disqus_developer = options.dev ||
                                 !!window.location.port ||
-                                !window.location.host !== 'scriptolo.gy';
+                                window.location.host !== 'scriptolo.gy';
 
       window.disqus_shortname = 'cdata-scriptology';
       window.disqus_identifier = options.fragment;
       window.disqus_url = 'https://scriptolo.gy/' + options.fragment;
 
-      loadDisqusScript();
+      if (!options.offline) {
+        loadDisqusScript();
+      }
     }
   };
 });

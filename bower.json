@@ -1,0 +1,22 @@
+{
+  "name": "scriptolo.gy",
+  "version": "0.0.2",
+  "dependencies": {
+    "999": "http://github.com/cdata/999.git",
+    "bound": "http://github.com/cdata/bound.git",
+    "handlebars": "~1.0.0",
+    "jquery": "~2.0.2",
+    "normalize-css": "~2.1.2",
+    "highlightjs": "~7.3.0",
+    "backbone": "~1.0.0",
+    "marked": "~0.2.9",
+    "requirejs": "~2.1.6",
+    "underscore": "~1.4.4",
+    "q": "~0.9.3"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
+}

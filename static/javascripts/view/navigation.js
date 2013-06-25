@@ -1,7 +1,7 @@
 define(['view', 'jquery'],
        function(View, $) {
   return View.extend({
-    templateName: 'navigation',
+    templateName: 'navigation.handlebars',
     tagName: 'nav',
     events: {
       'click a': 'navigate'

@@ -113,14 +113,13 @@ pre code {
 }
 
 #Container {
-  /*width: 468px;*/
   width: 528px;
   margin: 0 auto 5em;
   padding: 0 2em 4em;
   border-radius: 0;
   background-color: #f2f2f2;
   border-radius: 0 0 1em 1em;
-  box-shadow: 0 1em 0 #008dc4, 0 1em 10em #414141;
+  box-shadow: 0 1em 0 #008dc4, 0 1em 2em #414141;
   -webkit-transition: height 0.3s;
 }
 
@@ -218,11 +217,17 @@ body > footer > .profiles li {
 
 body > footer > .profiles li a {
   color: #555;
+  /*transition: text-shadow 0.3s;*/
 }
 
 
-body > footer > .profiles li a:hover {
-  color: #008dc4;
+body > footer > .profiles li a:hover,
+body > footer > .profiles li a:active {
+  /*color: #008dc4;*/
+  color: #f2f2f2;
+  /*text-shadow: 0px 0.25em 0 #c43800;*/
+  text-shadow: 0 0.25em 0 #008dc4,
+               0 0.25em 0.5em #414141;
 }
 
 body > footer > .profiles li a[class^="icon-"]:before {

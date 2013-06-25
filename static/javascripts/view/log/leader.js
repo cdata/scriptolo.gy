@@ -1,7 +1,7 @@
 define(['view'],
        function(View) {
   return View.extend({
-    templateName: 'log-leader',
+    templateName: 'log-leader.handlebars',
     tagName: 'li',
     events: {
       'click .read-more': 'navigate'

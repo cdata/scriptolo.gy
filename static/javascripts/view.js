@@ -1,5 +1,5 @@
-define(['underscore', '999/view'],
+define(['underscore', '999/view', 'bound/queueable'],
        function(_, View, Queueable) {
   'use strict';
-  return View.extend(Queueable.prototype);
+  return View.extend(new Queueable());
 });

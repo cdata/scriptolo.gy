@@ -1,5 +1,5 @@
-define(['underscore', 'jquery', 'backbone', 'bound', 'view/body', 'view/log', 'view/log/entry', 'view/projects', 'view/archive', 'marked', 'highlight'],
-       function(_, $, Backbone, Bound, Body, Log, LogEntry, Projects, Archive, marked, highlight) {
+define(['underscore', 'jquery', 'backbone', 'bound', 'view/body', 'view/log', 'view/log/entry', 'view/projects', 'view/archive', 'marked', 'highlight', 'typekit'],
+       function(_, $, Backbone, Bound, Body, Log, LogEntry, Projects, Archive, marked, highlight, typekit) {
   return Backbone.Router.extend({
     routes: {
       '': 'index',
@@ -10,37 +10,39 @@ define(['underscore', 'jquery', 'backbone', 'bound', 'view/body', 'view/log', 'v
       'archive': 'archive'
     },
     initialize: function() {
-      this.bound = new Bound();
-      this.body = new Body({
-        el: document.getElementById('Container'),
-        bound: this.bound
-      }).render();
+      typekit.loads.then(_.bind(function() {
+        this.bound = new Bound();
+        this.body = new Body({
+          el: document.getElementById('Container'),
+          bound: this.bound
+        }).render();
 
-      marked.setOptions({
-        gfm: true,
-        pedantic: false,
-        sanitize: true,
-        highlight: function(code, language) {
-          try {
-            if (language) {
-              return highlight.highlight(language, code).value;
+        marked.setOptions({
+          gfm: true,
+          pedantic: false,
+          sanitize: true,
+          highlight: function(code, language) {
+            try {
+              if (language) {
+                return highlight.highlight(language, code).value;
+              }
+
+              return highlight.highlightAuto(code).value;
+            } catch(e) {
+              console.error('Error while highlighting code.', e);
             }
-
-            return highlight.highlightAuto(code).value;
-          } catch(e) {
-            console.error('Error while highlighting code.', e);
           }
-        }
-      });
+        });
 
-      this.body.navigation.on('navigate', this.performNavigation, this);
+        this.body.navigation.on('navigate', this.performNavigation, this);
 
-      $(document.getElementsByTagName('html')[0]).addClass('scriptology');
+        $(document.getElementsByTagName('html')[0]).addClass('scriptology');
 
-      Backbone.history.start({
-        pushState: !(window.location.search &&
-                     /\?dev$/i.test(window.location.search))
-      });
+        Backbone.history.start({
+          pushState: !(window.location.search &&
+                       /\?dev$/i.test(window.location.search))
+        });
+      }, this));
     },
     index: function() {
       this.navigate('log', { trigger: true });

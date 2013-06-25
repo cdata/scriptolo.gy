@@ -18,7 +18,7 @@ define(['view', 'view/log/leader', 'templates', 'jquery'],
         item.fetch();
       }, this);
 
-      this.$el.append(templates['view-archive']());
+      this.$el.append(templates['view-archive.handlebars']());
 
       window.scrollTo(0, 0);
 

@@ -1,7 +1,7 @@
 define(['view'],
        function(View) {
   return View.extend({
-    templateName: 'archive-leader',
+    templateName: 'archive-leader.handlebars',
     tagName: 'li',
     events: {
       'click a': 'navigate'

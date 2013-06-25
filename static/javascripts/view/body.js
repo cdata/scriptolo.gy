@@ -1,7 +1,7 @@
 define(['view', 'view/navigation', 'view/signature', 'view/projects', 'view/log', 'view/log/entry', 'view/archive'],
        function(View, Navigation, Signature) {
   return View.extend({
-    templateName: 'body',
+    templateName: 'body.handlebars',
     initialize: function(options) {
       options = options || {};
       View.prototype.initialize.call(this, options);
