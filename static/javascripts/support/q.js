@@ -1,1 +1,1 @@
-../../../components/q/q.js
+../../../bower_components/q/q.js

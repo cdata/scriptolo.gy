@@ -1,1 +1,1 @@
-../../../components/underscore/underscore.js
+../../../bower_components/underscore/underscore.js

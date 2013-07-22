@@ -1,1 +1,1 @@
-../../../components/highlightjs/highlight.pack.js
+../../../bower_components/highlightjs/highlight.pack.js

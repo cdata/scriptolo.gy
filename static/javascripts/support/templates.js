@@ -76,9 +76,15 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1, stack2;
-  buffer += "\n  <article>\n    <header>\n      <h1>"
+  buffer += "\n  <article>\n    <header>\n      <h1><a class=\"internal title\" href=\"log/";
+  if (stack1 = helpers.id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.id; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\" title=\""
     + escapeExpression(((stack1 = ((stack1 = depth0.meta),stack1 == null || stack1 === false ? stack1 : stack1.title)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</h1>\n    </header>\n    ";
+    + "\">"
+    + escapeExpression(((stack1 = ((stack1 = depth0.meta),stack1 == null || stack1 === false ? stack1 : stack1.title)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</a></h1>\n    </header>\n    ";
   stack2 = helpers['if'].call(depth0, depth0.image, {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
   if(stack2 || stack2 === 0) { buffer += stack2; }
   buffer += "\n    ";
@@ -105,7 +111,7 @@ function program4(depth0,data) {
   if (stack1 = helpers.leader) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.leader; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "<a class=\"read-more internal\" href=\"log/";
+  buffer += " <a class=\"read-more internal\" href=\"log/";
   if (stack1 = helpers.id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.id; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
@@ -133,7 +139,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<a class=\"icon-feather log\" title=\"Log\" href=\"/log\">Log</a>\n<a class=\"icon-cloud-thunder projects\" title=\"Projects\" href=\"/projects\">Projects</a>\n";
+  return "<a class=\"icon-right log internal\" title=\"Log\" href=\"/log\">Log</a>\n<a class=\"icon-right projects internal\" title=\"Projects\" href=\"/projects\">Projects</a>\n";
   });
 
 this["templates"]["projects.handlebars"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -160,7 +166,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<li>\n  <nav>\n    <a href=\"/archive\" title=\"View older items\" class=\"view-archive icon-back-in-time\">View older items</a>\n  </nav>\n</li>\n";
+  return "<li>\n  <nav>\n    <a href=\"/archive\" title=\"View older items\" class=\"internal view-archive icon-left\">View older items</a>\n  </nav>\n</li>\n";
   });
 
 return this["templates"];

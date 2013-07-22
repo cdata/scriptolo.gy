@@ -1,1 +1,1 @@
-../../../components/bound/client/bound.js
+../../../bower_components/bound/client/bound.js

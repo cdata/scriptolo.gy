@@ -7,38 +7,47 @@ body {
 }
 
 a {
-  color: #c43800;
+  color: #cc6a6a;
   font-weight: 700;
   text-decoration: none;
   text-shadow: 0 0 0 #ccc;
+}
+
+a:hover {
+  color: #cc4141;
+  text-decoration: underline;
 }
 
 a.internal {
   color: #888;
 }
 
-a:hover,
-a.internal:hover {
-  color: #008dc4;
-}
-
-
-h1 a {
-  color: #888;
+a.internal:hover,
+a.internal:active,
+a.internal.active {
+  color: #7f9f7f;
   text-decoration: none;
 
-  text-shadow: 0 0 0 #555, 0 0 0 #555, 0 0 0 #555;
-  -webkit-transition: color 0.3s, text-shadow 0.3s;
-  -moz-transition: color 0.3s, text-shadow 0.3s;
-  -ms-transition: color 0.3s, text-shadow 0.3s;
-  -o-transition: color 0.3s, text-shadow 0.3s;
-  transition: color 0.3s, text-shadow 0.3s;
 }
 
-h1 a:hover {
-  color: #ddd;
-  background-color: transparent;
-  text-shadow: 0px 1px 0 #008dc4, 0px 2px 0 #008dc4, 0px 3px 0 #008dc4;
+blockquote {
+  padding: 1em 2em 1em 1em;
+  border-left: 1em solid #ccc;
+  margin: 0 0 1em;
+}
+
+blockquote > p {
+  color: #888;
+  font-style: italic;
+}
+
+p > code {
+  background-color: #e3ceab;
+  color: #7F7460;
+  margin: 0 0.125em;
+  padding: 0 0.25em;
+  font-size: 0.85em;
+  vertical-align: middle;
 }
 
 div, section, ul, ol, li, nav {
@@ -49,9 +58,22 @@ div, section, ul, ol, li, nav {
 }
 
 h1, h2, h3, h4, h5 {
-  color: #555;
   line-height: 1.125em;
   margin: 0 0 0.5em;
+}
+
+h1 {
+  color: #555;
+}
+
+h2 {
+  color: #666;
+  padding: 0.5em 0 0;
+}
+
+h3, h4, h5 {
+  color: #888;
+  margin: 0 0 0.66em;
 }
 
 article > header > h1 {
@@ -109,17 +131,17 @@ pre code {
 }
 
 .spinner:before {
-  content: '\e832';
+  content: '\e804';
 }
 
 #Container {
-  width: 528px;
+  width: 38em;
   margin: 0 auto 5em;
   padding: 0 2em 4em;
   border-radius: 0;
   background-color: #f2f2f2;
   border-radius: 0 0 1em 1em;
-  box-shadow: 0 1em 0 #008dc4, 0 1em 2em #414141;
+  box-shadow: 0 1em 0 #667f66, 0 1em 2em #414141;
   -webkit-transition: height 0.3s;
 }
 
@@ -132,13 +154,6 @@ pre code {
   position: relative;
   padding: 0 0.5em 0 0;
   font-size: 2em;
-  color: #888;
-}
-
-#Container nav a:hover,
-#Container nav a.active,
-#Container nav a:active {
-  color: #008dc4;
 }
 
 #Container > header h1 {
@@ -150,20 +165,7 @@ pre code {
 #Container > footer {
   clear: both;
   overflow: hidden;
-  padding-top: 1.5em;
-}
-
-#Container > footer:before {
-  display: block;
-  position: relative;
-  content: '\221e';
-  margin: 0 auto 1.5em;
-  width: 1em;
-  height: 1em;
-  font-family: 'scriptology';
-  font-style: normal;
-  font-weight: normal;
-  color: #888;
+  margin: 4em 0 0;
 }
 
 #Container > footer > p {
@@ -174,7 +176,7 @@ pre code {
 #Container > footer > img {
   float: left;
   border-radius: 0.5em;
-  margin-right: 6%;
+  margin-right: 5%;
   width: 22%;
   height: 22%;
 }
@@ -217,17 +219,15 @@ body > footer > .profiles li {
 
 body > footer > .profiles li a {
   color: #555;
-  /*transition: text-shadow 0.3s;*/
 }
 
 
 body > footer > .profiles li a:hover,
 body > footer > .profiles li a:active {
-  /*color: #008dc4;*/
   color: #f2f2f2;
-  /*text-shadow: 0px 0.25em 0 #c43800;*/
-  text-shadow: 0 0.25em 0 #008dc4,
+  text-shadow: 0 0.25em 0 #667F66,
                0 0.25em 0.5em #414141;
+  text-decoration: none;
 }
 
 body > footer > .profiles li a[class^="icon-"]:before {
@@ -249,10 +249,10 @@ body > footer > .profiles li a > span {
   opacity: 1;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 756px) {
   #Container {
-    width: 88%;
-    padding: 0 6% 12%;
+    width: 90%;
+    padding: 0 5% 12%;
     min-width: 260px;
   }
 

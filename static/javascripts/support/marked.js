@@ -1,1 +1,1 @@
-../../../components/marked/lib/marked.js
+../../../bower_components/marked/lib/marked.js

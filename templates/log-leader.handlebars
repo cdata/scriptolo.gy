@@ -1,13 +1,13 @@
 {{#if content}}
   <article>
     <header>
-      <h1>{{meta.title}}</h1>
+      <h1><a class="internal title" href="log/{{id}}" title="{{meta.title}}">{{meta.title}}</a></h1>
     </header>
     {{#if image}}
       {{{image}}}
     {{/if}}
     {{#if leader}}
-      <p>{{{leader}}}<a class="read-more internal" href="log/{{id}}" title="{{meta.title}}">Read more &hellip;</a></p>
+      <p>{{{leader}}} <a class="read-more internal" href="log/{{id}}" title="{{meta.title}}">Read more &hellip;</a></p>
     {{/if}}
   </article>
 {{else}}

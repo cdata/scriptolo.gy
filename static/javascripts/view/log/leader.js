@@ -4,7 +4,8 @@ define(['view'],
     templateName: 'log-leader.handlebars',
     tagName: 'li',
     events: {
-      'click .read-more': 'navigate'
+      'click .read-more': 'navigate',
+      'click .title': 'navigate'
     },
     modelBindings: {
       'change:content': 'render'

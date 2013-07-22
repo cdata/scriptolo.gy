@@ -1,1 +1,1 @@
-../../../components/handlebars/handlebars.runtime.js
+../../../bower_components/handlebars/handlebars.runtime.js
