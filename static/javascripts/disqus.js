@@ -10,8 +10,14 @@ define(['jquery', 'underscore'],
 
   return {
     unload: function() {
-      if (window.DISQUS && window.DISQUS.reset) {
-        window.DISQUS.reset();
+      if (window.DISQUS) {
+        if (window.DISQUS.reset) {
+          window.DISQUS.reset();
+        }
+
+        if (window.DISQUS.off) {
+          window.DISQUS.off();
+        }
       }
     },
     load: function(options) {

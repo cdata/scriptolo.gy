@@ -57,6 +57,15 @@ div, section, ul, ol, li, nav {
   padding: 0;
 }
 
+article ul {
+  padding: 0 0 0 2em;
+  margin: 0 0 1em
+}
+
+article ul li {
+  display: list-item;
+}
+
 h1, h2, h3, h4, h5 {
   line-height: 1.125em;
   margin: 0 0 0.5em;
@@ -211,6 +220,10 @@ body > footer {
   text-align: center;
   color: #555;
   opacity: 0;
+}
+
+body > footer > .profiles {
+  margin: 0 0 1em;
 }
 
 body > footer > .profiles li {
